@@ -17,7 +17,7 @@ def convert_pdf_to_images(pdf_path, output_folder,pdf_file):
         page = pdf_document.load_page(page_number)
         image_list = page.get_pixmap()
         image = Image.frombytes("RGB", [image_list.width, image_list.height], image_list.samples)
-        image.save(os.path.join(output_folder, f"{pdf_file}_page_{page_number + 1}.jpg"))
+        image.save(os.path.join(output_folder, f"{pdf_file.replace(".pdf", "")}_page_{page_number + 1}.jpg"))
     pdf_document.close()
 
 
